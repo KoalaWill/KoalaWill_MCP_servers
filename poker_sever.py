@@ -16,7 +16,7 @@ logger = logging.getLogger("poker_mcp")
 # --- Shared Selenium client setup ---
 # Initialize the Selenium WebDriver
 options = Options()
-options.add_argument("--headless")
+# options.add_argument("--headless")
 driver = webdriver.Firefox(options=options)
 client = PokerClient(driver)
 
@@ -158,7 +158,7 @@ async def get_available_actions() -> dict:
         return {"status": "error", "detail": str(e)}
 
 @mcp.tool()
-async def perform_action(action: str, amount: Optional[int] = None) -> dict:
+async def perform_action(action: str, amount: int = None) -> dict:
     """Perform an action in the game."""
     logger.info("Called perform_action with action=%s, amount=%s", action, amount)
     try:

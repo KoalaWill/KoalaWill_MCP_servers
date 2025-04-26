@@ -79,11 +79,8 @@ This method bundles Python and all necessary libraries. You only need Docker ins
 3.  **Create `.env` File:** Create a file named `.env` in the project root directory and add your API keys:
     ```.env
     # Required for the smart_extract tool
-    GOOGLE_API_KEY=your_google_ai_api_key_here
-
-    # Optional, checked by server but not currently used by tools
-    # OPENAI_API_KEY=your_openai_key_here
-    # MISTRAL_API_KEY=your_mistral_key_here
+    OPENAI_API_KEY=your_openai_key_here
+    # MISTRAL_API_KEY=your_mistral_key_here(Don't need this for now)
     ```
 4.  **Build the Docker Image:**
     ```bash

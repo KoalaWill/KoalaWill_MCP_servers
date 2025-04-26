@@ -1,17 +1,25 @@
-# Crawl4AI Web Scraper MCP Server
+# Crawl4AI Web Scraper MCP Server && PokerNow MCP Server
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <!-- Optional: Add license -->
 
-This project provides an MCP (Model Context Protocol) server that uses the **[crawl4ai](https://github.com/unclecode/crawl4ai)** library to perform web scraping and intelligent content extraction tasks. It allows AI agents (like Claude, or agents built with LangChain/LangGraph) to interact with web pages, retrieve content, search for specific text, and perform LLM-based extraction based on natural language instructions.
+This project provides two MCP (Model Context Protocol) servers,
+
+- One that uses the **[crawl4ai](https://github.com/unclecode/crawl4ai)** library to perform web scraping and intelligent content extraction tasks.
+- Another uses the **[PokerNow Client](https://github.com/Zehmosu/PokerNow)** API client to gather infromation and do actions on the Poker site **[PokerNow](https://www.pokernow.club)**.
+
+It allows AI agents (like Claude, or agents built with LangChain/LangGraph) to interact with web pages, retrieve content, search for specific text, and perform LLM-based extraction based on natural language instructions.
 
 This server uses:
 
 *   **[FastMCP](https://github.com/model-context-protocol/mcp-py/blob/main/docs/fastmcp.md):** For creating the MCP server endpoint.
 *   **[crawl4ai](https://github.com/unclecode/crawl4ai):** For the core web crawling and extraction logic.
+*   **[PokerNow Client](https://github.com/Zehmosu/PokerNow):** To peform actions and retrieve data.
 *   **[dotenv](https://github.com/theskumar/python-dotenv):** For managing API keys via a `.env` file.
 *   **(Optional) Docker:** For containerized deployment, bundling Python and dependencies.
 
-## Features
+# TODO: Complete PokerNow sever part of README.md
+
+## Features of Scrapping server
 
 *   Exposes MCP tools for web interaction:
     *   `scrape_url`: Get the full content of a webpage in Markdown format.

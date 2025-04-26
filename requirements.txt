@@ -1,4 +1,6 @@
 # Discord Bot with LangChain, LangMem, and MCP Server Tools
+PokerNow
+selenium
 discord.py>=2.0.0
 python-dotenv>=0.21.0
 langchain>=0.1.0

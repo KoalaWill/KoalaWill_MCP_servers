@@ -7,7 +7,7 @@ This repository contains two Model-Controller-Processor (MCP) servers:
 ## Credits
 - Craw4ai: https://github.com/unclecode/crawl4ai by unclecode
 - Pokernow client: https://github.com/Zehmosu/PokerNow by Zehmosu
-- Scraping Server forked from : https://github.com/MaitreyaM/WEB-SCRAPING-MCP
+- Scraping Server forked from : https://github.com/MaitreyaM/WEB-SCRAPING-MCP by Maitreya Mishra
 
 ## Table of Contents
 - [Crawl4AI Scraping Server](#crawl4ai-scraping-server)  

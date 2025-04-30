@@ -1,10 +1,12 @@
 import logging
 import asyncio
 import json
+import time
 from mcp.server.fastmcp import FastMCP
 from selenium import webdriver
-from PokerNow import PokerClient
 from selenium.webdriver.firefox.options import Options
+from PokerNow import PokerClient  # Assuming this is the correct import
+from models_local import GameState
 
 # --- Configure logging ---
 logging.basicConfig(
@@ -34,6 +36,7 @@ mcp.settings.port = 8000
 # --- Define tool methods ---
 
 @mcp.tool()
+# This Function is successful
 async def navigate(url: str) -> dict:
     """Navigate the browser to a specific URL."""
     logger.info("Called navigate with URL: %s", url)
@@ -59,6 +62,7 @@ async def get_game_state() -> dict:
         return {"status": "error", "detail": str(e)}
 
 @mcp.tool()
+# always returns false even when it is my turn, suspect is the client's fault no need to fix now
 async def is_your_turn() -> dict:
     """Check if it's your turn."""
     logger.info("Called is_your_turn")
@@ -97,6 +101,7 @@ async def get_players_info() -> dict:
         return {"status": "error", "detail": str(e)}
 
 @mcp.tool()
+# Currently works
 async def get_winners() -> dict:
     """Retrieve the winners of the last hand."""
     logger.info("Called get_winners")
@@ -109,6 +114,7 @@ async def get_winners() -> dict:
         return {"status": "error", "detail": str(e)}
 
 @mcp.tool()
+# This function is successful
 async def get_blinds() -> dict:
     """Retrieve the current blinds values."""
     logger.info("Called get_blinds")
@@ -121,6 +127,7 @@ async def get_blinds() -> dict:
         return {"status": "error", "detail": str(e)}
 
 @mcp.tool()
+# only returns the sit position, no player name or how far the paly is.
 async def get_dealer_position() -> dict:
     """Get the dealer button position."""
     logger.info("Called get_dealer_position")
@@ -133,6 +140,7 @@ async def get_dealer_position() -> dict:
         return {"status": "error", "detail": str(e)}
 
 @mcp.tool()
+# This function currently doesn't work
 async def get_current_player() -> dict:
     """Get the name of the current player."""
     logger.info("Called get_current_player")
@@ -145,6 +153,7 @@ async def get_current_player() -> dict:
         return {"status": "error", "detail": str(e)}
 
 @mcp.tool()
+# Only retrieves check and fold even when call and raise is available
 async def get_available_actions() -> dict:
     """List available actions for the current player."""
     logger.info("Called get_available_actions")
@@ -158,6 +167,7 @@ async def get_available_actions() -> dict:
         return {"status": "error", "detail": str(e)}
 
 @mcp.tool()
+# Can only successfully check
 async def perform_action(action: str, amount: int = None) -> dict:
     """Perform an action in the game."""
     logger.info("Called perform_action with action=%s, amount=%s", action, amount)
@@ -170,6 +180,7 @@ async def perform_action(action: str, amount: int = None) -> dict:
         return {"status": "error", "detail": str(e)}
 
 @mcp.tool()
+# This function currently doesn't work
 async def handle_raise(amount: int) -> dict:
     """Handle a raise action with specified amount."""
     logger.info("Called handle_raise with amount=%s", amount)
@@ -185,6 +196,7 @@ async def handle_raise(amount: int) -> dict:
         return {"status": "error", "detail": str(e)}
 
 @mcp.tool()
+# Unsure
 async def check_and_handle_fold_confirmation() -> dict:
     """Check and confirm a fold dialog if present."""
     logger.info("Called check_and_handle_fold_confirmation")
@@ -197,6 +209,7 @@ async def check_and_handle_fold_confirmation() -> dict:
         return {"status": "error", "detail": str(e)}
 
 @mcp.tool()
+# Buggy
 async def events() -> dict:
     """Streams the latest game state whenever it changes."""
     logger.info("Called events")

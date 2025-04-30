@@ -4,6 +4,11 @@ This repository contains two Model-Controller-Processor (MCP) servers:
 - **Crawl4AI Scraping Server** – Provides web crawling and AI-based content analysis using LLMs (e.g., Claude).  
 - **PokerNow Server** – Enables AI agents to interact with PokerNow.club online poker games (Texas Hold'em), retrieving game state and performing actions.
 
+## Credits
+- Craw4ai: https://github.com/unclecode/crawl4ai by unclecode
+- Pokernow client: https://github.com/Zehmosu/PokerNow by Zehmosu
+- Scraping Server forked from : https://github.com/MaitreyaM/WEB-SCRAPING-MCP
+
 ## Table of Contents
 - [Crawl4AI Scraping Server](#crawl4ai-scraping-server)  
   - [Features (Crawl4AI)](#features-crawl4ai)  
